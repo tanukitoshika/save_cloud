@@ -16,6 +16,13 @@ find_package(catkin REQUIRED COMPONENTS
 find_package(OpenCV REQUIRED)
 
 
+find_package(PCL 1.2 REQUIRED)
+
+include_directories(${PCL_INCLUDE_DIRS})
+link_directories(${PCL_LIBRARY_DIRS})
+add_definitions(${PCL_DEFINITIONS})
+
+
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -169,4 +176,4 @@ include_directories(
 # catkin_add_nosetests(test)
 add_executable(save_cloud src/save_cloud.cpp)
 #target_link_libraries(save_cloud ${catkin_LIBRARIES})
-target_link_libraries(save_cloud ${catkin_LIBRARIES}   ${OpenCV_LIBRARIES} )
+target_link_libraries(save_cloud ${catkin_LIBRARIES}   ${OpenCV_LIBRARIES} ${PCL_LIBRARIES} )
